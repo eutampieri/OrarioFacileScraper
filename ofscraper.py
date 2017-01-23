@@ -28,21 +28,18 @@ for ore in tree:
             g=g+1
             continue
         deltaOre=int(giorno.attrib["rowspan"])
-        a = giorno[0]
-        b = giorno[1]
-        try:
-            a = a[0]
-        except IndexError:
-            pass
-        try:
-            b = b[0]
-        except IndexError:
-            pass
-        res=a.text
-        if extended:
-            res=res+", "+b.text
-        res=res.replace(u'\xa0', '').replace("\n",'')
-        if res=='' or res==', ':
+        a = giorno
+        res=""
+        for p in a:
+            try:
+                res=res+p[0].text
+            except:
+                res=res+p.text
+            res=res+" "
+            if (not extended) and not res.strip()=="":
+                break
+        res=res.replace(u'\xa0', '').replace("\n",'').strip()
+        if res=='' or res==', ' or res=="XX":
             res=None
         if orario[g-1][ora-1] == None:
             for h in range(ora-1,ora+deltaOre-1):

@@ -8,11 +8,9 @@ The JSON produced by the software is an array, representing the week, of arrays,
 This software was made to work with Orario Facile © 7 but compatibility isn't guaranteed at all. For example, it worked with:
 * http://servizi.alberghetti.it/orario/itis/Classi/2ALS.html, Orario Facile © 7
 * http://www.itisgalileiconegliano.gov.it/orario/Classi/3AT.html, Orario Facile © 8
+* http://www.filolao.it/joomla/orariodefinitivo15_16/Classi/Classe9.html, Orario Facile © 7
 
-And it didn't worked with:
-* http://www.filolao.it/joomla/orariodefinitivo15_16/Classi/Classe9.html, Orario Facile © 7 (even if it should require some minor tweaks)
-
-If you want to report a compatible instance of Orario Facile ©, please write an email to eugenio <at> etcloud.ddns.net and if you want to report an incompatible instance, just open an issue
+If you want to report a compatible instance of Orario Facile ©, please write an email to eugenio \<at> etcloud.ddns.net and if you want to report an incompatible instance, just refer to bug #1
 ## Dependancies
 * python
 * lxml
