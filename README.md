@@ -10,14 +10,8 @@ This software was made to work with Orario Facile © 7 but compatibility isn't g
 * http://www.itisgalileiconegliano.gov.it/orario/Classi/3AT.html, Orario Facile © 8
 * http://www.filolao.it/joomla/orariodefinitivo15_16/Classi/Classe9.html, Orario Facile © 7
 
-<<<<<<< HEAD
 If you want to report a compatible instance of Orario Facile ©, please write an email to eugenio \<at> etcloud.ddns.net and if you want to report an incompatible instance, just refer to bug #1
-=======
-And it didn't worked with:
-* http://www.filolao.it/joomla/orariodefinitivo15_16/Classi/Classe9.html, Orario Facile © 7 (even if it should require some minor tweaks)
 
-If you want to report a compatible instance of Orario Facile ©, please write an email to eugenio \<at> etcloud.ddns.net and if you want to report an incompatible instance, just open an issue
->>>>>>> 4eefe8947dabfed16c461577b027d9ec3ac2b9b3
 ## Dependancies
 * python
 * lxml
