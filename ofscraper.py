@@ -1,7 +1,7 @@
 """Scraper Orario Facile 7, by Eugenio Tampieri
 MIT License
 """
-import urllib2
+import requests
 from lxml import html
 from sys import argv
 from json import dumps
@@ -10,7 +10,7 @@ try:
     extended = argv[2]=="extended"
 except:
     extended = False
-search = urllib2.urlopen(url).read()
+search = requests.get(url,headers={'User-Agent': "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:51.0) Gecko/20100101 Firefox/51.0", 'Accept-Encoding': ', '.join(('gzip', 'deflate')),'Accept': '*/*','Connection': 'keep-alive',}).text
 tree = html.fromstring(search)
 orario=[]
 tree = tree[2][1][0]
