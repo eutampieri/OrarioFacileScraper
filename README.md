@@ -1,4 +1,5 @@
 # OrarioFacileScraper
+[![forthebadge](http://forthebadge.com/images/badges/made-with-python.svg)](http://forthebadge.com)
 This script is used to parse informations in webpages provided by [Orario Facile © 7](http://www.orariofacile.com/) to a JSON list that is written to the *stdout*.
 ## Syntax
 This script is quite easy to use: just exec `python ofscraper.py <url> extended` where `url`is the URL to the webpage provided by Orario Facile © and `extended` is an optional switch used to show more informations.
