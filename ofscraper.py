@@ -13,10 +13,9 @@ except:
 search = requests.get(url, headers={'User-Agent': "Mozilla/5.0 (X11; Ubuntu; Linux i686; rv:51.0) Gecko/20100101 Firefox/51.0",
                       'Accept-Encoding': ', '.join(('gzip', 'deflate')), 'Accept': '*/*', 'Connection': 'keep-alive', }).text
 tree = html.fromstring(search)
-orario = []
+orario = [[None for i in range(6)] for i in range(6)]
+orainizio = []
 tree = tree[2][1][0]
-for i in range(6):
-    orario.append([None, None, None, None, None, None])
 ###########################################################
 ora = 0
 for ore in tree:
@@ -26,21 +25,24 @@ for ore in tree:
         continue
     for giorno in ore:
         if g == 0:
+            orainizio.append(ore[0].text.strip())
             g = g+1
             continue
         deltaOre = int(giorno.attrib["rowspan"])
         a = giorno
-        res = ""
+        res = []
         for p in a:
             try:
-                res = res+p[0].text
+                p_res = p[0].text
             except:
-                res = res+p.text
-            res = res+" "
-            if (not extended) and not res.strip() == "":
+                p_res = p.text
+            p_res = p_res.replace(u'\xa0', '').replace("\n", '').strip()
+            if p_res != "":
+                res.append(p_res)
+            if (not extended) and not "".join(res).strip() == "":
+                res = "".join(res)
                 break
-        res = res.replace(u'\xa0', '').replace("\n", '').strip()
-        if res == '' or res == ', ' or res == "XX":
+        if "".join(res) == '' or "".join(res) == ', ' or "".join(res) == "XX":
             res = None
         if orario[g-1][ora-1] == None:
             for h in range(ora-1, ora+deltaOre-1):
@@ -55,4 +57,4 @@ for ore in tree:
     ora = ora+1
 ###########################################################
 gg = 1
-print(dumps(orario))
+print(dumps({"orario": orario, "ore": orainizio}))
